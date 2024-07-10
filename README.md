@@ -15,6 +15,7 @@ where $MLP$ is a Multi Perceptron Layer.
 ## patial Attention Module (SAM)
 To generate a spatial attention map using the inter-spation relationship, we aim to identify 'where' is the informative part.
 The process of computing the spatial attention map is as follows:
+
 $$M_s(F) = \sigma(f^{n*n}([AvgPool(F);MaxPool(F)]))$$
 where $f^(n*n)$ is a layer convolution size of $n*n$.
 <p align="center">
