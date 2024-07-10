@@ -24,8 +24,8 @@ where $f^{n\*n}$ is a layer convolution size of $n\*n$.
 ## Convolution Block Attention Module (CBAM)
 The Convolutional Block Attention Module (CBAM) combines the Channel Attention Module (CAM) and the Spatial Attention Module (SAM) to produce a comprehensive attention map that includes both channel and spatial attention.
 CBAM is computing as follows:
-$$ F\' = M_c(F) \otimes F 
-    F\'\' = M_s(F\') \otimes F\' $$
+$$ F\' = M_c(F) . F 
+    F\'\' = M_s(F\') . F\' $$
 where $\otimes$ denotes element-wise multiplication.
 <p align="center">
   <img width="683" height="212" src="img/diagrams/cbam_diagram.jpg">
