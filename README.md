@@ -4,21 +4,31 @@
 
 
 ## Channel Attention Module (CAM)
-Produce a channel attention map using the inter-channel relationship. Like explain in associated article, the idea is search > 'what' is meaningful given an input image.
-For that he compute the CAM as follow:
+To generate a channel attention map by leveraging the inter-channel relationship, we aim to identify 'what' is meaningful in a given input image. 
+The process of computing the channel attetion map is as follows:
 $$M_c(F) = \sigma(\text{MLP}(AvgPool(F)) + \text{MLP}(MaxPool(F)))$$
-![image](img/diagrams/cam_diagram.jpg)
-
+where $MLP$ is a Multi Perceptron Layer.
+<p align="center">
+  <img width="696" height="175" src="img/diagrams/cam_diagram.jpg">
+</p>
 ## Spatial Attention Module (SAM)
-
+To generate a spatial attention map using the inter-spation relationship, we aim to identify 'where' is the informative part.
+The process of computing the spatial attention map is as follows:
 $$M_s(F) = \sigma(f^{n*n}([AvgPool(F);MaxPool(F)]))$$
-![image](img/diagrams/sam_diagram.jpg)
-
+where $f^(n*n)$ is a layer convolution size of $n*n$.
+<p align="center">
+  <img width="579" height="209" src="img/diagrams/sam_diagram.jpg">
+</p>
 ## Convolution Block Attention Module (CBAM)
+The Convolutional Block Attention Module (CBAM) combines the Channel Attention Module (CAM) and the Spatial Attention Module (SAM) to produce a comprehensive attention map that includes both channel and spatial attention.
 
-
-![image](img/diagrams/cbam_diagram.jpg)
-
+CBAM is computing as follows:
+$$ F' = M_c(F) \otimes F 
+    F'' = M_s(F') \otimes F' $$
+where $\otimes$ denotes element-wise multiplication.
+<p align="center">
+  <img width="683" height="212" src="img/diagrams/cbam_diagram.jpg">
+</p>
 
 
 ## References
